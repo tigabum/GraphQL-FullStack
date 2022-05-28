@@ -19,7 +19,7 @@ const Header = ({ children }) => {
                 <Logo src={logo} />
               </LogoContainer>
               <Title>
-                <h3>Catstronaut</h3>
+                <h3>GraphQL</h3>
                 <div>Kitty space academy</div>
               </Title>
             </HomeButton>
