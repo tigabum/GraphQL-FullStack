@@ -18,7 +18,10 @@ class TrackAPI extends RESTDataSource {
     return this.get(`track/${trackId}`);
   }
   getTrackModules(id) {
-      return this.get(`track/${id}/modules`)
+    return this.get(`track/${id}/modules`);
+  }
+  incrementTrackViews(trackId) {
+    return this.patch(`track/${trackId}/numberOfViews`);
   }
 }
 

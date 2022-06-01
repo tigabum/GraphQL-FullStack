@@ -9,6 +9,18 @@ const resolvers = {
       return dataSources.trackAPI.getTrack(id);
     },
   },
+
+  Mutation: {
+    incrementTrackViews: async (_, { id }, { dataSouces }) => {
+      let track = await dataSouces.trackAPI.incrementTrackViews(id);
+      return {
+        code: 200,
+        success: true,
+        message: `Successfully incremented view's number of ${id}`,
+        track,
+      };
+    },
+  },
   Track: {
     //trackForHome returns lists of tracks, then apollo server
     // iterates through the list and call author resolver for each track
