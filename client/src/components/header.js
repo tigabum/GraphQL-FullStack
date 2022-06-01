@@ -20,7 +20,7 @@ const Header = ({ children }) => {
               </LogoContainer>
               <Title>
                 <h3>GraphQL</h3>
-                <div>Kitty space academy</div>
+                <div>Learning GraphQL project</div>
               </Title>
             </HomeButton>
           </HomeLink>
