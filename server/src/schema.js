@@ -8,6 +8,21 @@ const typeDefs = gql`
     track(id: ID!): Track!
   }
 
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    "Similar to HTTP status code, represents the status of the mutation"
+    code: ID!
+    "Indicates whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "Newly updated track after a successful mutation"
+    track: Track
+  }
+
   "Track is a group of module that teaches about specific topic"
   type Track {
     id: ID!
@@ -40,11 +55,11 @@ const typeDefs = gql`
 
   "A Module is a single unit of teaching. Multiple Modules compose a Track"
   type Module {
-      id: ID!
-      "The Module's title"
-      title: String!
-      "The Module's length in minutes"
-      length: Int
+    id: ID!
+    "The Module's title"
+    title: String!
+    "The Module's length in minutes"
+    length: Int
   }
 `;
 
