@@ -11,14 +11,23 @@ const resolvers = {
   },
 
   Mutation: {
-    incrementTrackViews: async (_, { id }, { dataSouces }) => {
-      let track = await dataSouces.trackAPI.incrementTrackViews(id);
-      return {
-        code: 200,
-        success: true,
-        message: `Successfully incremented view's number of ${id}`,
-        track,
-      };
+    incrementTrackViews: async (_, { id }, { dataSources }) => {
+      try {
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
+        return {
+          code: 200,
+          success: true,
+          message: `Successfully incremented view's number of ${id}`,
+          track,
+        };
+      } catch (err) {
+        return {
+          code: err.extensions.response.status,
+          success: false,
+          message: err.extensions.response.body,
+          track: null,
+        };
+      }
     },
   },
   Track: {
