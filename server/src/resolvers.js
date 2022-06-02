@@ -11,9 +11,9 @@ const resolvers = {
   },
 
   Mutation: {
-    incrementTrackViews: async (_, { id }, { dataSouces }) => {
+    incrementTrackViews: async (_, { id }, { dataSources }) => {
       try {
-        let track = await dataSouces.trackAPI.incrementTrackViews(id);
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
         return {
           code: 200,
           success: true,
